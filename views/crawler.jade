@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title= title
+    style(type='text/css').
+      body {
+        text-align: center;
+        margin: 0;
+      }
+      .image-container {
+        height: 100vh;
+        display: none;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .image-container.active {
+        display: block;
+      }
+      #prev {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        text-align: left;
+        width: 30%;
+        cursor: pointer;
+      }
+      #next {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        text-align: right;
+        width: 30%;
+        cursor: pointer;
+      }
+
+  body
+    div(role="main")
+      each image in images
+        div.image-container(style="background-image:url('#{image}')")
+    #prev <
+    #next >
+    script(src="https://code.jquery.com/jquery-2.2.4.min.js")
+    script(src="/javascripts/main.js")
